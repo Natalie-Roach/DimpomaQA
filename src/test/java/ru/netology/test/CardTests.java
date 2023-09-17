@@ -1,5 +1,6 @@
 package ru.netology.test;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 
@@ -13,6 +14,13 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class CardTests {
 
+    @BeforeEach
+    void setup() {
+        open(System.getProperty("sut.url"));
+        Selenide.clearBrowserCookies();
+        Selenide.clearBrowserLocalStorage();
+    }
+
     @BeforeAll
     static void setUpAll() {
         SelenideLogger.addListener("allure", new AllureSelenide());
@@ -21,7 +29,7 @@ public class CardTests {
     @AfterAll
     static void tearDownAll() {
         SelenideLogger.removeListener("allure");
-        SQLHelper.cleanDatabase();
+        SQLHelper.cleanDataBase();
     }
 
 
@@ -40,7 +48,6 @@ public class CardTests {
     public void shouldFillInFormWithApprovedCardForCreditGate() {
         var url = open("http://localhost:8080", CardPage.class);
         CardPage.payInCreditButton();
-        ;
         var cardInfo = DataHelper.approvedField();
         CardPage.fullField(cardInfo);
         CardPage.successfulWay();
