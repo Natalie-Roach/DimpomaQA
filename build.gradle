@@ -11,7 +11,7 @@ sourceCompatibility = 11
 compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
 
-apply plugin: 'io.qameta.allure'
+//apply plugin: 'io.qameta.allure'
 
 allure {
     version = '2.13.0'
@@ -34,9 +34,11 @@ dependencies {
     testImplementation 'mysql:mysql-connector-java:8.0.33'
     implementation group: 'com.github.javafaker', name: 'javafaker', version: '1.0.2'
     testImplementation 'io.rest-assured:rest-assured:5.3.0'
-    testImplementation 'io.qameta.allure:allure-selenide:2.21.0'
     testImplementation 'postgresql:postgresql:9.3-1102.jdbc41'
     testImplementation 'commons-dbutils:commons-dbutils:1.7'
+
+    testImplementation 'io.qameta.allure:allure-selenide:2.21.0'
+    testImplementation 'io.qameta.allure:allure-rest-assured:2.21.0'
 }
 
 test {
