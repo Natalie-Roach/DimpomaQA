@@ -21,6 +21,7 @@ public class CardTests {
         Selenide.clearBrowserLocalStorage();
     }
 
+
     @BeforeAll
     static void setUpAll() {
         SelenideLogger.addListener("allure", new AllureSelenide());
@@ -44,7 +45,7 @@ public class CardTests {
     }
 
     @Test
-    @DisplayName("Сценарий №1 - Успешная оплата по кредитной карте со статусом APPROVED (Credit Gate)")
+    @DisplayName("Сценарий №2 - Успешная оплата по кредитной карте со статусом APPROVED (Credit Gate)")
     public void shouldFillInFormWithApprovedCardForCreditGate() {
         var url = open("http://localhost:8080", CardPage.class);
         CardPage.payInCreditButton();
@@ -54,7 +55,7 @@ public class CardTests {
     }
 
     @Test
-    @DisplayName("Сценарий №2 - Запись о неуспешной операции по дебетовой карте со статусом DECLINED (Payment Gate)")
+    @DisplayName("Сценарий №3 - Запись о неуспешной операции по дебетовой карте со статусом DECLINED (Payment Gate)")
     public void shouldFillInFormWithDeclinedCardForPaymentGate() {
         var url = open("http://localhost:8080", CardPage.class);
         CardPage.payInDebitButton();
@@ -64,7 +65,7 @@ public class CardTests {
     }
 
     @Test
-    @DisplayName("Сценарий №2 - Запись о неуспешной операции по кредитной карте со статусом DECLINED (Credit Gate)")
+    @DisplayName("Сценарий №4 - Запись о неуспешной операции по кредитной карте со статусом DECLINED (Credit Gate)")
     public void shouldFillInFormWithDeclinedCardForCreditGate() {
         var url = open("http://localhost:8080", CardPage.class);
         CardPage.payInCreditButton();
@@ -74,7 +75,7 @@ public class CardTests {
     }
 
     @Test
-    @DisplayName("Сценарий №3 - Невалидный формат номера дебетовой карты (Payment Gate)")
+    @DisplayName("Сценарий №5 - Невалидный формат номера дебетовой карты (Payment Gate)")
     public void shouldFillInFormWithInvalidCardNumberForPaymentGate() {
         var url = open("http://localhost:8080", CardPage.class);
         CardPage.payInDebitButton();
@@ -84,7 +85,7 @@ public class CardTests {
     }
 
     @Test
-    @DisplayName("Сценарий №3 - Невалидный формат номера кредитной карты (Credit Gate)")
+    @DisplayName("Сценарий №6 - Невалидный формат номера кредитной карты (Credit Gate)")
     public void shouldFillInFormWithInvalidCardNumberForCreditGate() {
         var url = open("http://localhost:8080", CardPage.class);
         CardPage.payInCreditButton();
@@ -95,7 +96,7 @@ public class CardTests {
     }
 
     @Test
-    @DisplayName("Сценарий №4 - Невалидный месяц для дебетовой карты (Payment Gate)")
+    @DisplayName("Сценарий №7 - Невалидный месяц для дебетовой карты (Payment Gate)")
     public void shouldFillInFormWithInvalidMonthForPaymentGate() {
         var url = open("http://localhost:8080", CardPage.class);
         CardPage.payInDebitButton();
@@ -105,7 +106,7 @@ public class CardTests {
     }
 
     @Test
-    @DisplayName("Сценарий №4 - Невалидный месяц для кредитной карты (Credit Gate)")
+    @DisplayName("Сценарий №8 - Невалидный месяц для кредитной карты (Credit Gate)")
     public void shouldFillInFormWithInvalidMonthForCreditGate() {
         var url = open("http://localhost:8080", CardPage.class);
         CardPage.payInCreditButton();
@@ -115,7 +116,7 @@ public class CardTests {
     }
 
     @Test
-    @DisplayName("Сценарий №5 - Невалидный год для дебетовой карты (Payment Gate)")
+    @DisplayName("Сценарий №9 - Невалидный год для дебетовой карты (Payment Gate)")
     public void shouldFillInFormWithInvalidYearForPaymentGate() {
         var url = open("http://localhost:8080", CardPage.class);
         CardPage.payInDebitButton();
@@ -125,7 +126,7 @@ public class CardTests {
     }
 
     @Test
-    @DisplayName("Сценарий №5 - Невалидный год для кредитной карты (Credit Gate)")
+    @DisplayName("Сценарий №10 - Невалидный год для кредитной карты (Credit Gate)")
     public void shouldFillInFormWithInvalidYearForCreditGate() {
         var url = open("http://localhost:8080", CardPage.class);
         CardPage.payInCreditButton();
@@ -135,7 +136,7 @@ public class CardTests {
     }
 
     @Test
-    @DisplayName("Сценарий №6 - Истёкший срок годности для дебетовой карты (Payment Gate)")
+    @DisplayName("Сценарий №11 - Истёкший срок годности для дебетовой карты (Payment Gate)")
     public void shouldFillInFormWithExpiredYearForPaymentGate() {
         var url = open("http://localhost:8080", CardPage.class);
         CardPage.payInDebitButton();
@@ -145,7 +146,7 @@ public class CardTests {
     }
 
     @Test
-    @DisplayName("Сценарий №6 - Истёкший срок годности для кредитной карты (Credit Gate)")
+    @DisplayName("Сценарий №12 - Истёкший срок годности для кредитной карты (Credit Gate)")
     public void shouldFillInFormWithExpiredYearForCreditGate() {
         var url = open("http://localhost:8080", CardPage.class);
         CardPage.payInCreditButton();
@@ -155,7 +156,7 @@ public class CardTests {
     }
 
     @Test
-    @DisplayName("Сценарий №7 - Невалидное значение в поле Владелец (кириллица) для дебетовой карты (Payment Gate)")
+    @DisplayName("Сценарий №13 - Невалидное значение в поле Владелец (кириллица) для дебетовой карты (Payment Gate)")
     public void shouldFillInFormWithInvalidOwnerCyrillicForPaymentGate() {
         var url = open("http://localhost:8080", CardPage.class);
         CardPage.payInDebitButton();
@@ -165,7 +166,7 @@ public class CardTests {
     }
 
     @Test
-    @DisplayName("Сценарий №7 - Невалидное значение в поле Владелец (кириллица) для кредитной карты (Credit Gate)")
+    @DisplayName("Сценарий №14 - Невалидное значение в поле Владелец (кириллица) для кредитной карты (Credit Gate)")
     public void shouldFillInFormWithInvalidOwnerCyrillicForCreditGate() {
         var url = open("http://localhost:8080", CardPage.class);
         CardPage.payInCreditButton();
@@ -175,7 +176,7 @@ public class CardTests {
     }
 
     @Test
-    @DisplayName("Сценарий №8 - Невалидное значение в поле Владелец (цифры) для дебетовой карты (Payment Gate)")
+    @DisplayName("Сценарий №15 - Невалидное значение в поле Владелец (цифры) для дебетовой карты (Payment Gate)")
     public void shouldFillInFormWithInvalidOwnerNumbersForPaymentGate() {
         var url = open("http://localhost:8080", CardPage.class);
         CardPage.payInDebitButton();
@@ -185,7 +186,7 @@ public class CardTests {
     }
 
     @Test
-    @DisplayName("Сценарий №8 - Невалидное значение в поле Владелец (цифры) для кредитной карты (Credit Gate)")
+    @DisplayName("Сценарий №16 - Невалидное значение в поле Владелец (цифры) для кредитной карты (Credit Gate)")
     public void shouldFillInFormWithInvalidOwnerNumbersForCreditGate() {
         var url = open("http://localhost:8080", CardPage.class);
         CardPage.payInCreditButton();
@@ -195,7 +196,7 @@ public class CardTests {
     }
 
     @Test
-    @DisplayName("Сценарий №9 - Невалидное значение в поле CVC для дебетовой карты (Payment Gate)")
+    @DisplayName("Сценарий №17 - Невалидное значение в поле CVC для дебетовой карты (Payment Gate)")
     public void shouldFillInFormWithInvalidCVCForPaymentGate() {
         var url = open("http://localhost:8080", CardPage.class);
         CardPage.payInDebitButton();
@@ -205,7 +206,7 @@ public class CardTests {
     }
 
     @Test
-    @DisplayName("Сценарий №9 - Невалидное значение в поле CVC для кредитной карты (Credit Gate)")
+    @DisplayName("Сценарий №18 - Невалидное значение в поле CVC для кредитной карты (Credit Gate)")
     public void shouldFillInFormWithInvalidCVCForCreditGate() {
         var url = open("http://localhost:8080", CardPage.class);
         CardPage.payInCreditButton();
@@ -215,7 +216,7 @@ public class CardTests {
     }
 
     @Test
-    @DisplayName("Сценарий №10 - Пустое поле номера карты для дебетовой карты (Payment Gate)")
+    @DisplayName("Сценарий №19 - Пустое поле номера карты для дебетовой карты (Payment Gate)")
     public void shouldFillInFormWithEmptyCardFieldForPaymentGate() {
         var url = open("http://localhost:8080", CardPage.class);
         CardPage.payInDebitButton();
@@ -225,7 +226,7 @@ public class CardTests {
     }
 
     @Test
-    @DisplayName("Сценарий №10 - Пустое поле номера карты для кредитной карты (Credit Gate)")
+    @DisplayName("Сценарий №20 - Пустое поле номера карты для кредитной карты (Credit Gate)")
     public void shouldFillInFormWithEmptyCardFieldForCreditGate() {
         var url = open("http://localhost:8080", CardPage.class);
         CardPage.payInCreditButton();
@@ -235,7 +236,7 @@ public class CardTests {
     }
 
     @Test
-    @DisplayName("Сценарий №11 - Пустое поле месяца для дебетовой карты (Payment Gate)")
+    @DisplayName("Сценарий №21 - Пустое поле месяца для дебетовой карты (Payment Gate)")
     public void shouldFillInFormWithEmptyMonthFieldForPaymentGate() {
         var url = open("http://localhost:8080", CardPage.class);
         CardPage.payInDebitButton();
@@ -245,7 +246,7 @@ public class CardTests {
     }
 
     @Test
-    @DisplayName("Сценарий №11 - Пустое поле месяца для кредитной карты (Credit Gate)")
+    @DisplayName("Сценарий №22 - Пустое поле месяца для кредитной карты (Credit Gate)")
     public void shouldFillInFormWithEmptyMonthFieldForCreditGate() {
         var url = open("http://localhost:8080", CardPage.class);
         CardPage.payInCreditButton();
@@ -255,7 +256,7 @@ public class CardTests {
     }
 
     @Test
-    @DisplayName("Сценарий №12 - Пустое поле года для дебетовой карты (Payment Gate)")
+    @DisplayName("Сценарий №23 - Пустое поле года для дебетовой карты (Payment Gate)")
     public void shouldFillInFormWithEmptyYearFieldForPaymentGate() {
         var url = open("http://localhost:8080", CardPage.class);
         CardPage.payInDebitButton();
@@ -265,7 +266,7 @@ public class CardTests {
     }
 
     @Test
-    @DisplayName("Сценарий №12 - Пустое поле года для кредитной карты (Credit Gate)")
+    @DisplayName("Сценарий №24 - Пустое поле года для кредитной карты (Credit Gate)")
     public void shouldFillInFormWithEmptyYearFieldForCreditGate() {
         var url = open("http://localhost:8080", CardPage.class);
         CardPage.payInCreditButton();
@@ -275,7 +276,7 @@ public class CardTests {
     }
 
     @Test
-    @DisplayName("Сценарий №13 - Пустое поле Владелец для дебетовой карты (Payment Gate)")
+    @DisplayName("Сценарий №25 - Пустое поле Владелец для дебетовой карты (Payment Gate)")
     public void shouldFillInFormWithEmptyOwnerFieldForPaymentGate() {
         var url = open("http://localhost:8080", CardPage.class);
         CardPage.payInDebitButton();
@@ -285,7 +286,7 @@ public class CardTests {
     }
 
     @Test
-    @DisplayName("Сценарий №13 - Пустое поле Владелец для кредитной карты (Credit Gate)")
+    @DisplayName("Сценарий №26 - Пустое поле Владелец для кредитной карты (Credit Gate)")
     public void shouldFillInFormWithEmptyOwnerFieldForCreditGate() {
         var url = open("http://localhost:8080", CardPage.class);
         CardPage.payInCreditButton();
@@ -295,7 +296,7 @@ public class CardTests {
     }
 
     @Test
-    @DisplayName("Сценарий №14 - Пустое поле CVC для дебетовой карты (Payment Gate)")
+    @DisplayName("Сценарий №27 - Пустое поле CVC для дебетовой карты (Payment Gate)")
     public void shouldFillInFormWithEmptyCVCFieldForPaymentGate() {
         var url = open("http://localhost:8080", CardPage.class);
         CardPage.payInDebitButton();
@@ -305,7 +306,7 @@ public class CardTests {
     }
 
     @Test
-    @DisplayName("Сценарий №14 - Пустое поле CVC для кредитной карты (Credit Gate)")
+    @DisplayName("Сценарий №28 - Пустое поле CVC для кредитной карты (Credit Gate)")
     public void shouldFillInFormWithEmptyCVCFieldForCreditGate() {
         var url = open("http://localhost:8080", CardPage.class);
         CardPage.payInCreditButton();

@@ -2,7 +2,7 @@
 
 ## Шаг 1 - запуск контейнеров:
 1. Открываем скачанное заранее **desktop-приложение Docker**
-2. Запускаем контейнеры с MySQL, PostgreSQL и эмулятором банковских сервисов Node.js через терминал IDEA с помощью команды **docker-compose up**
+2. Запускаем контейнеры с и эмулятором банковских сервисов Node.js через терминал IDEA с помощью команды **docker-compose up**
 
 ## Шаг 2 - запуск SUT:
 - для MySQL в терминале IDEA используем команду: **java "-Dspring.datasource.url=jdbc:mysql://localhost:3306/app" -jar artifacts/aqa-shop.jar**
