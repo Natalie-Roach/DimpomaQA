@@ -24,3 +24,9 @@ URL : http://localhost:8080/
 ## Шаг 6 - остановка контейнеров:
 Для остановки работы контейнеров вводим в терминал IDEA команду **docker-compose down**
 
+## Документация:
+- [План автоматизации тестирования](https://github.com/Natalie-Roach/DiplomaQA/blob/main/documentation/plan.md)
+- [Отчёт по результатам автоматического тестирования](https://github.com/Natalie-Roach/DiplomaQA/blob/main/documentation/Report.md)
+- [Отчёт по итогам автоматизации](https://github.com/Natalie-Roach/DiplomaQA/blob/main/documentation/Summary.md)
+
+
